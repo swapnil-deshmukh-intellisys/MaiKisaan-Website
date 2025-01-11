@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Mai Kisaan</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #e0f7fa 0%, #b3e5fc 100%);
+            color: #333;
+        }
+
+        header {
+            background-color: rgba(240, 248, 255, 0.8);
+            color: #2c3e50;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-bottom: 4px solid #4e9cc1;
+        }
+
+
+        header h1 {
+            font-size: 3rem;
+            margin: 0;
+            color: #4e9cc1;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            margin-top: 0.5rem;
+            color: #7f8c8d;
+        }
+
+        /* Content Styles */
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 1rem;
+        }
+
+        section {
+            margin-bottom: 2rem;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            animation: fadeInUp 1s ease-in-out;
+        }
+
+        /* Section Titles */
+        section h2 {
+            font-size: 2.5rem;
+            color: #3498db;
+            margin-bottom: 1rem;
+        }
+
+        section p {
+            font-size: 1.1rem;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        /* Features Section */
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+        }
+
+        .feature-card {
+            flex: 1 1 250px;
+            text-align: center;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        .feature-card i {
+            font-size: 3rem;
+            color: #4e9cc1;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+
+        .feature-card p {
+            font-size: 1rem;
+            color: #666;
+        }
+
+        /* Team Section */
+        .team {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+        }
+
+        .team-member {
+            flex: 1 1 250px;
+            text-align: center;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .team-member img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+            object-fit: cover;
+            border: 3px solid #3498db;
+        }
+
+        .team-member h4 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: #2c3e50;
+        }
+
+        .team-member p {
+            font-size: 1rem;
+            color: #555;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <h1>About Us</h1>
+        <p>Empowering Farmers, Revolutionizing Agriculture</p>
+    </header>
+
+    <!-- Mission Section -->
+    <div class="container">
+        <section>
+            <h2>Our Mission</h2>
+            <p>
+                At Mai Kisaan, our mission is to empower farmers with the tools and resources they need to succeed in
+                the modern agricultural landscape. We aim to bridge the gap between traditional farming practices and
+                innovative solutions to enhance productivity and profitability for farmers across the nation.
+            </p>
+        </section>
+
+        <!-- Features Section -->
+        <section>
+            <h2>What We Offer</h2>
+            <div class="features">
+                <div class="feature-card">
+                    <i class="fas fa-tractor"></i>
+                    <h3>Advanced Tools</h3>
+                    <p>Access the latest farming tools and equipment for improved efficiency.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-leaf"></i>
+                    <h3>Organic Solutions</h3>
+                    <p>Promoting sustainable farming practices with organic fertilizers and pesticides.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Market Insights</h3>
+                    <p>Stay updated with the latest market trends and price fluctuations.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-users"></i>
+                    <h3>Community Support</h3>
+                    <p>Join a growing community of farmers for networking and knowledge sharing.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Team Section -->
+        <section>
+            <h2>Meet Our Team</h2>
+            <div class="team">
+                <div class="team-member">
+                    <img src="https://via.placeholder.com/150" alt="Team Member 1">
+                    <h4>Rajesh Kumar</h4>
+                    <p>Founder & CEO</p>
+                </div>
+                <div class="team-member">
+                    <img src="https://via.placeholder.com/150" alt="Team Member 2">
+                    <h4>Anjali Sharma</h4>
+                    <p>Head of Marketing</p>
+                </div>
+                <div class="team-member">
+                    <img src="https://via.placeholder.com/150" alt="Team Member 3">
+                    <h4>Vikram Singh</h4>
+                    <p>Agricultural Expert</p>
+                </div>
+                <div class="team-member">
+                    <img src="https://via.placeholder.com/150" alt="Team Member 4">
+                    <h4>Priya Desai</h4>
+                    <p>Technology Lead</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+</body>
+
+</html>

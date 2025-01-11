@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Price Mandi Alerts</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Chart.js CDN -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Open+Sans:wght@300;400;600&display=swap');
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f8f4;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+        }
+
+        .page-title {
+            text-align: center;
+            margin-top: 2rem;
+            font-size: 2rem;
+            color: #388E3C;
+        }
+
+        /* Marquee Animation */
+        .marquee-container {
+            background-color: #c7c5b6e4;
+            color: rgb(0, 0, 0);
+            font-size: 1.1rem;
+            padding: 1rem;
+            overflow: hidden;
+        }
+
+        .marquee-content {
+            white-space: nowrap;
+            animation: scroll-left 30s linear infinite;
+        }
+
+        @keyframes scroll-left {
+            0% {
+                transform: translateX(100%);
+            }
+
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        .category-buttons {
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .category-buttons button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 1rem 2rem;
+            margin: 0.5rem;
+            font-size: 1rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .category-buttons button:hover {
+            background-color: #388E3C;
+        }
+
+        .subcategories-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+            padding: 1rem;
+            max-height: 400px;
+            /* Set the height of the container */
+            overflow-y: scroll;
+            /* Enable vertical scrolling */
+            scrollbar-width: thin;
+            /* For Firefox */
+        }
+
+        .subcategory-card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 20%;
+            margin: 1rem;
+            text-align: center;
+            padding: 1.5rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .subcategory-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .subcategory-card h3 {
+            font-size: 1.5rem;
+            color: #4CAF50;
+            margin-bottom: 1rem;
+        }
+
+        .subcategory-card .price-change {
+            font-size: 1.2rem;
+            color: #FF7043;
+            font-weight: bold;
+        }
+
+        .subcategory-card .price-change-positive {
+            color: #388E3C;
+        }
+
+        .popup-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .popup-content {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .popup-content h3 {
+            color: #4CAF50;
+            margin-bottom: 1rem;
+        }
+
+        .popup-content p {
+            color: #555;
+            margin-bottom: 1.5rem;
+        }
+
+        .popup-content .close-popup {
+            background-color: #FF7043;
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .popup-content .close-popup:hover {
+            background-color: #FF5722;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Price Mandi Alerts - Product Price Changes</h1>
+    </header>
+
+    <!-- Marquee for Price Updates -->
+    <div class="marquee-container">
+        <div class="marquee-content">
+            <span>📈 Price update: Apples increased by ₹20/kg | Tomatoes decreased by ₹5/kg | Milk increased by ₹5/liter
+                | Rice increased by ₹10/kg | Wheat decreased by ₹3/kg. Stay tuned for more updates! 📉</span>
+        </div>
+    </div>
+
+    <div class="page-title">
+        <h2>Latest Price Changes in Mandi</h2>
+    </div>
+
+    <div class="category-buttons">
+        <button onclick="showSubcategories('fruits')">Fruits</button>
+        <button onclick="showSubcategories('vegetables')">Vegetables</button>
+        <button onclick="showSubcategories('grains')">Grains</button>
+        <button onclick="showSubcategories('dairy')">Dairy</button>
+    </div>
+
+    <div id="fruits" class="subcategories-container">
+        <!-- Subcategories for Fruits -->
+        <div class="subcategory-card" onclick="showPopup('Apples')">
+            <h3>Apples</h3>
+            <div class="price-change price-change-positive">Price increased by ₹20/kg</div>
+        </div>
+        <div class="subcategory-card" onclick="showPopup('Oranges')">
+            <h3>Oranges</h3>
+            <div class="price-change price-change-positive">Price increased by ₹15/kg</div>
+        </div>
+        <div class="subcategory-card" onclick="showPopup('Bananas')">
+            <h3>Bananas</h3>
+            <div class="price-change price-change-positive">Price increased by ₹5/kg</div>
+        </div>
+        <div class="subcategory-card" onclick="showPopup('Pineapples')">
+            <h3>Pineapples</h3>
+            <div class="price-change price-change-positive">Price increased by ₹10/kg</div>
+        </div>
+        <div class="subcategory-card" onclick="showPopup('Mangoes')">
+            <h3>Mangoes</h3>
+            <div class="price-change price-change-positive">Price increased by ₹30/kg</div>
+        </div>
+        <div class="subcategory-card" onclick="showPopup('Grapes')">
+            <h3>Grapes</h3>
+            <div class="price-change price-change-positive">Price increased by ₹25/kg</div>
+        </div>
+        <div class="subcategory-card" onclick="showPopup('Papayas')">
+            <h3>Papayas</h3>
+            <div class="price-change price-change-positive">Price decreased by ₹5/kg</div>
+        </div>
+        <div class="subcategory-card" onclick="showPopup('Peaches')">
+            <h3>Peaches</h3>
+            <div class="price-change price-change-positive">Price increased by ₹18/kg</div>
+        </div>
+        <div class="subcategory-card" onclick="showPopup('Cherries')">
+            <h3>Cherries</h3>
+            <div class="price-change price-change-positive">Price decreased by ₹10/kg</div>
+        </div>
+        <div class="subcategory-card" onclick="showPopup('Avocados')">
+            <h3>Avocados</h3>
+            <div class="price-change price-change-positive">Price increased by ₹40/kg</div>
+        </div>
+    </div>
+
+    <div id="vegetables" class="subcategories-container">
+        <!-- Subcategories for Vegetables -->
+        <div class="subcategory-card" onclick="showPopup('Tomatoes')">
+            <h3>Tomatoes</h3>
+            <div class="price-change price-change-positive">Price decreased by ₹5/kg</div>
+        </div>
+        <div class="subcategory-card" onclick="showPopup('Potatoes')">
+            <h3>Potatoes</h3>
+            <div class="price-change price-change-positive">Price increased by ₹8/kg</div>
+        </div>
+        <div class="subcategory-card" onclick="showPopup('Onions')">
+            <h3>Onions</h3>
+            <div class="price-change price-change-positive">Price increased by ₹10/kg</div>
+        </div>
+        <div class="subcategory-card" onclick="showPopup('Carrots')">
+            <h3>Carrots</h3>
+            <div class="price-change price-change-positive">Price increased by ₹5/kg</div>
+        </div>
+        <div class="subcategory-card" onclick="showPopup('Cucumbers')">
+            <h3>Cucumbers</h3>
+            <div class="price-change price-change-positive">Price decreased by ₹3/kg</div>
+        </div>
+        <div class="subcategory-card" onclick="showPopup('Cauliflower')">
+            <h3>Cauliflower</h3>
+            <div class="price-change price-change-positive">Price increased by ₹12/kg</div>
+        </div>
+        <div class="subcategory-card" onclick="showPopup('Spinach')">
+            <h3>Spinach</h3>
+            <div class="price-change price-change-positive">Price increased by ₹7/kg</div>
+        </div>
+        <div class="subcategory-card" onclick="showPopup('Brinjal')">
+            <h3>Brinjal</h3>
+            <div class="price-change price-change-positive">Price decreased by ₹2/kg</div>
+        </div>
+        <div class="subcategory-card" onclick="showPopup('Beans')">
+            <h3>Beans</h3>
+            <div class="price-change price-change-positive">Price increased by ₹6/kg</div>
+        </div>
+        <div class="subcategory-card" onclick="showPopup('Pumpkins')">
+            <h3>Pumpkins</h3>
+            <div class="price-change price-change-positive">Price increased by ₹10/kg</div>
+        </div>
+    </div>
+
+    <div id="grains" class="subcategories-container">
+        <!-- Subcategories for Grains -->
+        <div class="subcategory-card" onclick="showPopup('Rice')">
+            <h3>Rice</h3>
+            <div class="price-change price-change-positive">Price increased by ₹10/kg</div>
+        </div>
+        <div class="subcategory-card" onclick="showPopup('Wheat')">
+            <h3>Wheat</h3>
+            <div class="price-change price-change-positive">Price decreased by ₹3/kg</div>
+        </div>
+        <div class="subcategory-card" onclick="showPopup('Barley')">
+            <h3>Barley</h3>
+            <div class="price-change price-change-positive">Price increased by ₹5/kg</div>
+        </div>
+        <div class="subcategory-card" onclick="showPopup('Oats')">
+            <h3>Oats</h3>
+            <div class="price-change price-change-positive">Price increased by ₹8/kg</div>
+        </div>
+        <div class="subcategory-card" onclick="showPopup('Maize')">
+            <h3>Maize</h3>
+            <div class="price-change price-change-positive">Price decreased by ₹4/kg</div>
+        </div>
+        <div class="subcategory-card" onclick="showPopup('Millets')">
+            <h3>Millets</h3>
+            <div class="price-change price-change-positive">Price increased by ₹2/kg</div>
+        </div>
+        <div class="subcategory-card" onclick="showPopup('Sorghum')">
+            <h3>Sorghum</h3>
+            <div class="price-change price-change-positive">Price increased by ₹5/kg</div>
+        </div>
+        <div class="subcategory-card" onclick="showPopup('Ragi')">
+            <h3>Ragi</h3>
+            <div class="price-change price-change-positive">Price decreased by ₹3/kg</div>
+        </div>
+        <div class="subcategory-card" onclick="showPopup('Rice Flour')">
+            <h3>Rice Flour</h3>
+            <div class="price-change price-change-positive">Price increased by ₹15/kg</div>
+        </div>
+        <div class="subcategory-card" onclick="showPopup('Corn Flour')">
+            <h3>Corn Flour</h3>
+            <div class="price-change price-change-positive">Price decreased by ₹5/kg</div>
+        </div>
+    </div>
+
+    <div id="dairy" class="subcategories-container">
+        <!-- Subcategories for Dairy -->
+        <div class="subcategory-card" onclick="showPopup('Milk')">
+            <h3>Milk</h3>
+            <div class="price-change price-change-positive">Price increased by ₹5/liter</div>
+        </div>
+        <div class="subcategory-card" onclick="showPopup('Butter')">
+            <h3>Butter</h3>
+            <div class="price-change price-change-positive">Price increased by ₹12/kg</div>
+        </div>
+        <div class="subcategory-card" onclick="showPopup('Cheese')">
+            <h3>Cheese</h3>
+            <div class="price-change price-change-positive">Price increased by ₹30/kg</div>
+        </div>
+        <div class="subcategory-card" onclick="showPopup('Curd')">
+            <h3>Curd</h3>
+            <div class="price-change price-change-positive">Price decreased by ₹7/kg</div>
+        </div>
+        <div class="subcategory-card" onclick="showPopup('Paneer')">
+            <h3>Paneer</h3>
+            <div class="price-change price-change-positive">Price increased by ₹20/kg</div>
+        </div>
+        <div class="subcategory-card" onclick="showPopup('Milk Powder')">
+            <h3>Milk Powder</h3>
+            <div class="price-change price-change-positive">Price decreased by ₹10/kg</div>
+        </div>
+        <div class="subcategory-card" onclick="showPopup('Ice Cream')">
+            <h3>Ice Cream</h3>
+            <div class="price-change price-change-positive">Price increased by ₹15/kg</div>
+        </div>
+        <div class="subcategory-card" onclick="showPopup('Ghee')">
+            <h3>Ghee</h3>
+            <div class="price-change price-change-positive">Price increased by ₹50/kg</div>
+        </div>
+        <div class="subcategory-card" onclick="showPopup('Yogurt')">
+            <h3>Yogurt</h3>
+            <div class="price-change price-change-positive">Price increased by ₹10/liter</div>
+        </div>
+        <div class="subcategory-card" onclick="showPopup('Butter Milk')">
+            <h3>Butter Milk</h3>
+            <div class="price-change price-change-positive">Price decreased by ₹5/liter</div>
+        </div>
+    </div>
+
+    <!-- Popup for Product Details -->
+    <div class="popup-overlay" id="popup-overlay">
+        <div class="popup-content">
+            <h3 id="popup-title"></h3>
+            <p id="popup-details"></p>
+            <button class="close-popup" onclick="closePopup()">Close</button>
+        </div>
+    </div>
+
+    <script>
+        function showSubcategories(category) {
+            const subcategories = document.querySelectorAll('.subcategories-container');
+            subcategories.forEach(subcategory => {
+                subcategory.style.display = 'none';
+            });
+            const activeSubcategory = document.getElementById(category);
+            activeSubcategory.style.display = 'flex';
+        }
+
+        function showPopup(productName) {
+            const popupOverlay = document.getElementById('popup-overlay');
+            const popupTitle = document.getElementById('popup-title');
+            const popupDetails = document.getElementById('popup-details');
+
+            popupTitle.textContent = productName;
+            popupDetails.textContent = `Details about ${productName} including price change history.`;
+
+            popupOverlay.style.display = 'flex';
+        }
+
+        function closePopup() {
+            const popupOverlay = document.getElementById('popup-overlay');
+            popupOverlay.style.display = 'none';
+        }
+    </script>
+</body>
+
+</html>

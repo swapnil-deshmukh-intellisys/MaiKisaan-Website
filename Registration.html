@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Open+Sans:wght@300;400;600&display=swap');
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f8f4;
+            color: #333;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 600;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        header p {
+            margin-top: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 2rem auto;
+            text-align: center;
+        }
+
+        .button-group {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .button-group button {
+            flex: 1 1 120px;
+            padding: 1rem;
+            border: 2px solid #4CAF50;
+            border-radius: 50px;
+            background-color: #fff;
+            color: #4CAF50;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .button-group button:hover {
+            background-color: #388E3C;
+            color: white;
+            transform: scale(1.05);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .form-container {
+            position: relative;
+            height: 500px;
+            perspective: 1000px;
+            margin-top: 2rem;
+        }
+
+        .form {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            backface-visibility: hidden;
+            transform: scale(0);
+            opacity: 0;
+            transition: all 0.5s ease-in-out;
+            padding: 2rem;
+            color: #333;
+            overflow-y: auto;
+        }
+
+        .form.active {
+            transform: scale(1);
+            opacity: 1;
+        }
+
+        .form h2 {
+            margin-top: 0;
+            color: #4CAF50;
+        }
+
+        .form input,
+        .form select,
+        .form button,
+        .form textarea {
+            display: block;
+            width: 100%;
+            padding: 0.8rem;
+            margin: 0.5rem 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .form input,
+        .form select,
+        .form textarea {
+            background: #f9f9f9;
+        }
+
+        .form button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .form button:hover {
+            background-color: #388E3C;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(148, 148, 148, 0.645);
+            padding: 1rem 0;
+        }
+
+        /* Container for Logo and Links */
+        .container2 {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Logo Styles */
+        .logo img {
+            width: 70px;
+            height: 70px;
+        }
+
+        /* Navigation Links */
+        .hidden {
+            display: flex;
+            margin-left: auto;
+            /* Moves tabs to the right */
+        }
+
+        .hidden a {
+            color: black;
+            padding: 0.5rem;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .hidden a:hover {
+            color: #FC7F03;
+            /* Orange color on hover */
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Registration Page</h1>
+        <p>Select your role to register with Mai Kisaan</p>
+    </header>
+
+    <div class="container">
+        <div class="button-group">
+            <button onclick="showForm('exporter')">Exporter</button>
+            <button onclick="showForm('importer')">Importer</button>
+            <button onclick="showForm('buyer')">Buyer</button>
+            <button onclick="showForm('seller')">Seller</button>
+            <button onclick="showForm('user')">User</button>
+        </div>
+
+        <div class="form-container">
+            <!-- Exporter -->
+            <div id="exporter" class="form">
+                <h2>Exporter Registration</h2>
+                <input type="text" placeholder="Full Name" required>
+                <input type="email" placeholder="Email Address" required>
+                <input type="text" placeholder="Company Name" required>
+                <input type="text" placeholder="Export License Number" required>
+                <input type="text" placeholder="Country of Export" required>
+                <textarea placeholder="Export Product Details" rows="3" required></textarea>
+                <button>Register</button>
+            </div>
+
+            <!-- Importer -->
+            <div id="importer" class="form">
+                <h2>Importer Registration</h2>
+                <input type="text" placeholder="Full Name" required>
+                <input type="email" placeholder="Email Address" required>
+                <input type="text" placeholder="Company Name" required>
+                <input type="text" placeholder="Import License Number" required>
+                <input type="text" placeholder="Country of Import" required>
+                <textarea placeholder="Import Product Details" rows="3" required></textarea>
+                <button>Register</button>
+            </div>
+
+            <!-- Buyer -->
+            <div id="buyer" class="form">
+                <h2>Buyer Registration</h2>
+                <input type="text" placeholder="Full Name" required>
+                <input type="email" placeholder="Email Address" required>
+                <input type="text" placeholder="Contact Number" required>
+                <textarea placeholder="Products Interested In" rows="3" required></textarea>
+                <select>
+                    <option disabled selected>Select Preferred Delivery Method</option>
+                    <option>Direct Pickup</option>
+                    <option>Courier Delivery</option>
+                </select>
+                <button>Register</button>
+            </div>
+
+            <!-- Seller -->
+            <div id="seller" class="form">
+                <h2>Seller Registration</h2>
+                <input type="text" placeholder="Full Name" required>
+                <input type="email" placeholder="Email Address" required>
+                <input type="text" placeholder="Farm/Business Name" required>
+                <input type="text" placeholder="GST Number" required>
+                <textarea placeholder="Products Available for Sale" rows="3" required></textarea>
+                <input type="text" placeholder="Available Quantities" required>
+                <button>Register</button>
+            </div>
+
+            <!-- User -->
+            <div id="user" class="form">
+                <h2>User Registration</h2>
+                <input type="text" placeholder="Full Name" required>
+                <input type="email" placeholder="Email Address" required>
+                <input type="password" placeholder="Password" required>
+                <input type="password" placeholder="Confirm Password" required>
+                <textarea placeholder="Address" rows="3" required></textarea>
+                <button>Register</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showForm(formId) {
+            // Hide all forms
+            const forms = document.querySelectorAll('.form');
+            forms.forEach(form => {
+                form.classList.remove('active');
+            });
+
+            // Show the selected form
+            const formToShow = document.getElementById(formId);
+            formToShow.classList.add('active');
+        }
+    </script>
+</body>
+
+</html>

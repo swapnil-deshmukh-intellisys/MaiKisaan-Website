@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mai Kisaan</title>
+    <link rel="stylesheet" href="Home.css">
+    <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+
+<body class="overflow-x-hidden">
+    <!-- Navigation -->
+    <nav class="bg-gradient-to-r from-green-600 via-green-800 to-green-900 p-4 shadow-lg fixed w-full top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <!-- Logo -->
+            <div class="logo">
+                <img src="components/Logo.png" alt="Mai Kisaan Logo" class="w-36">
+            </div>
+            <!-- Navigation Links -->
+            <div class="hidden md:flex space-x-8 text-white font-semibold">
+                <a href="Home.html" class="hover:text-[#FC7F03] transition duration-300">Home</a>
+                <a href="#services" class="hover:text-[#FC7F03] transition duration-300">Services</a>
+                <a href="About.html" class="hover:text-[#FC7F03] transition duration-300">About</a>
+                <a href="Carrer.html" class="hover:text-[#FC7F03] transition duration-300">Career</a>
+                <a href="Registration.html" class="hover:text-[#FC7F03] transition duration-300">Registration</a>
+                <a href="Contact.html" class="hover:text-[#FC7F03] transition duration-300">Contact</a>
+                <a href="Business.html" class="hover:text-[#FC7F03] transition duration-300">Business</a>
+            </div>
+            <!-- Mobile Menu Button -->
+            <button class="md:hidden text-white p-2 rounded-md focus:outline-none" id="menu-toggle">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden absolute bg-green-800 top-16 left-0 w-full p-4 flex flex-col items-center">
+            <a href="#home" class="text-white py-2 text-lg">Home</a>
+            <a href="#services" class="text-white py-2 text-lg">Services</a>
+            <a href="#about" class="text-white py-2 text-lg">About</a>
+            <a href="#contact" class="text-white py-2 text-lg">Contact</a>
+            <a href="#reviews" class="text-white py-2 text-lg">Reviews</a>
+            <a href="#promo" class="text-white py-2 text-lg">App</a>
+        </div>
+    </nav>
+
+
+    <!-- Hero Section -->
+    <section id="home" class="pt-20 bg-black min-h-screen flex items-center relative overflow-hidden">
+        <!-- Video Background -->
+        <video autoplay muted loop class="absolute inset-0 w-full h-full object-cover opacity-30">
+            <source src="components/intro_bg.mp4" type="video/mp4">
+        </video>
+        <!-- Content Overlay -->
+        <div class="container mx-auto px-4 flex flex-wrap items-center relative z-10">
+            <div class="w-full md:w-1/2 text-white" data-aos="fade-right">
+                <h1 class="text-4xl md:text-6xl font-bold mb-6 font-playfair">
+                    Empowering <br>Farmers with <br> Knowledge <br> and Trust
+                </h1>
+            </div>
+        </div>
+    </section>
+
+    <!-- Welcome Section -->
+    <section class="py-20 bg-gray-200"
+        style="background-image: url('components/Logo.png'); background-size: contain; background-position: left; background-repeat: no-repeat;">
+        <div class="container mx-auto px-4 bb" style="display: flex; justify-content: right; margin-left: -10rem;"
+            data-aos="fade-up">
+            <div class="aa" style="margin-top: 4rem;">
+            </div>
+            <div class="aa">
+                <h2 class="text-black-600 text-center max-w-4xl mx-auto bg-white bg-opacity-100 p-6 rounded-lg">
+                    <b> <a href="Home.html">Maikisaan</a></b> is an innovative e-commerce platform transforming
+                    agriculture by connecting farmers,
+                    suppliers, and consumers. <br> Our mission is to deliver timely, affordable services across the
+                    country,
+                    with a vision to improve farmer livelihoods, enhance market access, and create a transparent,
+                    efficient system for all. <br>
+
+                    With features like direct farmer connections, a trading platform for agricultural products,
+                    automated price updates, and end-to-end logistics, Maikisaan simplifies farming and business
+                    operations. <br> As a friend of farmers, we ensure quality assurance by promoting traceability and
+                    trust. <br>
+                    Maikisaan is a catalyst for innovation, driving growth and sustainability in the agricultural
+                    industry
+                </h2>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-6xl font-bold text-center mb-12 font-montserrat" data-aos="fade-up">
+                <span class="text-black">Features</span>
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                <!-- Service Cards -->
+                <a href="PriceMandi.html">
+                    <div class="service-card bg-white p-6 rounded-full shadow-lg flex flex-col justify-center items-center text-center b2"
+                        style="box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;background-color: #85FFBD;
+                        background-image: linear-gradient(135deg, #85FFBD 0%, #FFFB7D 100%);                        
+                         " data-aos="flip-left">
+                        <i class="bi bi-cart text-5xl text-orange-500"></i>
+                        <h1 class="text-xl font-bold mt-4 font-lora">Price Mandi</h1>
+                    </div>
+                </a>
+                <a href="TradeMarket.html">
+                    <div class="service-card bg-white p-6 rounded-full shadow-lg flex flex-col justify-center items-center text-center b2"
+                        style="box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;background-color: #85FFBD;
+                        background-image: linear-gradient(135deg, #85FFBD 0%, #FFFB7D 100%);             
+                         " data-aos="flip-left">
+                        <i class="bi bi-bar-chart text-5xl text-orange-500"></i>
+                        <h3 class="text-xl font-bold mt-4 font-lora">Trade Market</h3>
+                    </div>
+                </a>
+                <a href="IE.html">
+                    <div class="service-card bg-white p-6 rounded-full shadow-lg flex flex-col justify-center items-center text-center b2"
+                        style="box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;background-color: #85FFBD;
+                        background-image: linear-gradient(228deg, #85FFBD 0%, #FFFB7D 100%);                         
+                         " data-aos="flip-left">
+                        <i class="bi bi-globe text-5xl text-orange-500"></i>
+                        <h1 class="text-xl font-bold mt-4 font-lora">Import/Export</h1>
+                    </div>
+                </a>
+                <a href="Buy-Sell.html">
+                    <div class="service-card bg-white p-6 rounded-full shadow-lg flex flex-col justify-center items-center text-center b2"
+                        style="box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;background-color: #85FFBD;
+                        background-image: linear-gradient(180deg, #85FFBD 1%, #FFFB7D 100%);                                                
+                         " data-aos="flip-left">
+                        <i class="bi bi-basket text-5xl text-orange-500"></i>
+                        <h1 class="text-xl font-bold mt-4 font-lora">Buy/Sell</h1>
+                    </div>
+                </a>
+                <a href="connect.html">
+                    <div class="service-card bg-white p-6 rounded-full shadow-lg flex flex-col justify-center items-center text-center b2"
+                        style="box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;background-color: #85FFBD;
+                        background-image: linear-gradient(270deg, #85FFBD 1%, #FFFB7D 100%);                        
+                         " data-aos="flip-left">
+                        <i class="bi bi-person-check text-5xl text-orange-500"></i>
+                        <h1 class="text-xl font-bold mt-4 font-lora">Connect To Buyers/Sellers</h1>
+                    </div>
+                </a>
+                <a href="Alerts.html">
+                    <div class="service-card bg-white p-6 rounded-full shadow-lg flex flex-col justify-center items-center text-center b2"
+                        style="box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;background-color: #85FFBD;
+                        background-image: linear-gradient(45deg, #85FFBD 0%, #FFFB7D 100%);
+                         " data-aos="flip-left">
+                        <i class="bi bi-bell text-5xl text-orange-500"></i>
+                        <h1 class="text-xl font-bold mt-4 font-lora">Alerts For Daily Price Changes</h1>
+                    </div>
+                </a>
+                <a href="News.html">
+                    <div class="service-card bg-white p-6 rounded-full shadow-lg flex flex-col justify-center items-center text-center b2"
+                        style="box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;background-color: #85FFBD;
+                        background-image: linear-gradient(45deg, #85FFBD 0%, #FFFB7D 100%);
+                         " data-aos="flip-left">
+                        <i class="bi bi-person-plus text-5xl text-orange-500"></i>
+                        <h1 class="text-xl font-bold mt-4 font-lora">News/Blogs/Videos</h1>
+                    </div>
+                </a>
+                <a href="https://play.google.com/store/games?hl=en">
+                    <div class="service-card bg-white p-6 rounded-full shadow-lg flex flex-col justify-center items-center text-center b2"
+                        style="box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;background-color: #85FFBD;
+                        background-image: linear-gradient(270deg, #85FFBD 1%, #FFFB7D 100%);                        
+                         " data-aos="flip-left">
+                        <i class="bi bi-phone text-5xl text-orange-500"></i>
+                        <h1 class="text-xl font-bold mt-4 font-lora">Download Mai Kisaan Mobile App</h1>
+                    </div>
+                </a>
+                <a href="Contact.html">
+                    <div class="service-card bg-white p-6 rounded-full shadow-lg flex flex-col justify-center items-center text-center b2"
+                        style="box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;background-color: #85FFBD;
+                        background-image: linear-gradient(45deg, #85FFBD 0%, #FFFB7D 100%);
+                         " data-aos="flip-left">
+                        <i class="bi bi-headset text-5xl text-orange-500"></i>
+                        <h1 class="text-xl font-bold mt-4 font-lora">24/7 User Support</h1>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="promo-section">
+        <h2 class="animate__animated animate__fadeInUp">Get the Mai Kisaan Mobile App!</h2>
+        <p class="animate__animated animate__fadeInUp delay-1s">Stay connected, get real-time updates, and manage your
+            agricultural activities on the go with the Mai Kisaan mobile app. Your farming experience, simplified.</p>
+
+        <div class="app-icons">
+            <a href="https://play.google.com/store" target="_blank" class="app-icon">
+                <i class="fab fa-google-play"></i> <!-- Google Play Icon -->
+            </a>
+            <a href="https://www.apple.com/app-store/" target="_blank" class="app-icon">
+                <i class="fab fa-app-store-ios"></i> <!-- App Store Icon -->
+            </a>
+        </div>
+    </section>
+
+
+
+    <!-- Reviews Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4 overflow-hidden">
+            <h2 class="text-6xl font-bold text-center mb-12 font-montserrat">
+                <div class="text-Black text-6xl font-bold font-montserrat">
+                    User<span class="custom-orange"> Experience</span>
+                </div>
+            </h2>
+            <div class="flex review-scroll">
+                <div class="min-w-[300px] bg-white p-6 rounded-lg shadow-lg mx-4"
+                    style="box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;">
+                    <p>Narendra Gore</p>
+                    <p class="text-gray-600">
+                        We’ve had a fantastic experience with Intellisys IT Solutions. Their web development
+                        services brought our vision to life with impressive results. The team was professional,
+                        communicative, and delivered a top-tier product.
+                    </p>
+                    <div class="mt-4 text-[#FC7F03]">
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                    </div>
+                </div>
+                <div class="min-w-[300px] bg-white p-6 rounded-lg shadow-lg mx-4  style=" box-shadow: rgba(0, 0, 0, 0.4)
+                    0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset; 0px 2px
+                    4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;>
+                    <p>Rohit Shelke</p>
+                    <p class="text-gray-600">
+                        Working with Intellisys was a game-changer for our business. Their expertise in full stack
+                        development helped us launch a seamless and efficient web application. Their professionalism
+                        and support were top-notch throughout the process.
+                    </p>
+                    <div class="mt-4 text-[#FC7F03]">
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                    </div>
+                </div>
+                <div class="min-w-[300px] bg-white p-6 rounded-lg shadow-lg mx-4  style=" box-shadow: rgba(0, 0, 0, 0.4)
+                    0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset; 0px 2px
+                    4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;>
+                    <p>TLA</p>
+                    <p class="text-gray-600">
+                        The Android app developed by Intellisys is outstanding! It's intuitive, fast, and performs
+                        flawlessly across devices. Their attention to detail and commitment to quality made the
+                        whole development process smooth and enjoyable.
+                    </p>
+                    <div class="mt-4 text-[#FC7F03]">
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                    </div>
+                </div>
+                <div class="min-w-[00px] bg-white p-6 rounded-lg shadow-lg mx-4"
+                    style="box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;">
+                    <p>Narendra Gore</p>
+                    <p class="text-gray-600">
+                        We’ve had a fantastic experience with Intellisys IT Solutions. Their web development
+                        services brought our vision to life with impressive results. The team was professional,
+                        communicative, and delivered a top-tier product.
+                    </p>
+                    <div class="mt-4 text-[#FC7F03]">
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                    </div>
+                </div>
+                <div class="min-w-[300px] bg-white p-6 rounded-lg shadow-lg mx-4  style=" box-shadow: rgba(0, 0, 0, 0.4)
+                    0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset; 0px 2px
+                    4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;>
+                    <p>Rohit Shelke</p>
+                    <p class="text-gray-600">
+                        Working with Intellisys was a game-changer for our business. Their expertise in full stack
+                        development helped us launch a seamless and efficient web application. Their professionalism
+                        and support were top-notch throughout the process.
+                    </p>
+                    <div class="mt-4 text-[#FC7F03]">
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                    </div>
+                </div>
+                <div class="min-w-[300px] bg-white p-6 rounded-lg shadow-lg mx-4  style=" box-shadow: rgba(0, 0, 0, 0.4)
+                    0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset; 0px 2px
+                    4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;>
+                    <p>TLA</p>
+                    <p class="text-gray-600">
+                        The Android app developed by Intellisys is outstanding! It's intuitive, fast, and performs
+                        flawlessly across devices. Their attention to detail and commitment to quality made the
+                        whole development process smooth and enjoyable.
+                    </p>
+                    <div class="mt-4 text-[#FC7F03]">
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-green-800 rounded-lg shadow text-white m-4">
+        <div class="footerele">
+            <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
+                <div class="row d-flex justify-content-between">
+                    <!-- Left Column -->
+                    <div class="col-lg-4">
+                        <div class="address-section">
+                            <h4>Our Location</h4>
+                            <p>
+                                Mai Kisaan, 123 Green Valley, Agri Park, Near Agriculture University, Pune, Maharashtra
+                                411057, India
+                            </p>
+                        </div>
+                    </div>
+                    <!-- Middle Column -->
+                    <div class="col-lg-4 text-center">
+                        <div class="logo-section" style="margin-top: 3rem;">
+                            <img src="components/Logo.png" alt="Mai Kisaan Logo"
+                                style="max-width: 170px; margin-bottom: 15px; margin-left: 7rem;">
+                            <!-- Social Media Icons -->
+                            <ul class="social-icons d-flex justify-content-center list-unstyled">
+                                <li class="social-icon-item">
+                                    <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn">
+                                        <i class="fab fa-linkedin-in"
+                                            style="font-size: 50px; color: rgb(255, 255, 255);"></i>
+                                    </a>
+                                </li>
+                                <li class="social-icon-item">
+                                    <a href="https://twitter.com" target="_blank" aria-label="Twitter">
+                                        <i class="fab fa-twitter" style="font-size: 50px; color: rgb(16, 89, 198);"></i>
+                                    </a>
+                                </li>
+                                <li class="social-icon-item">
+                                    <a href="https://facebook.com" target="_blank" aria-label="Facebook">
+                                        <i class="fab fa-facebook-f"
+                                            style="font-size: 50px; color: rgb(48, 144, 228);"></i>
+                                    </a>
+                                </li>
+                                <li class="social-icon-item">
+                                    <a href="https://instagram.com" target="_blank" aria-label="Instagram">
+                                        <i class="fab fa-instagram"
+                                            style="font-size: 50px; color: rgb(156, 26, 139);"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- Right Column -->
+                    <div class="col-lg-4">
+                        <div class="contact-section">
+                            <h4>Contact Us</h4>
+                            <p>
+                                <strong>Phone:</strong> +91 98765 43210<br>
+                                <strong>Email:</strong> support@maikisaan.com
+                            </p>
+                            <h4>Working Hours</h4>
+                            <p>
+                                <strong>Mon-Fri:</strong> 9AM - 6PM<br>
+                                <strong>Saturday:</strong> 10AM - 2PM<br>
+                                <strong>Sunday:</strong> Closed
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Footer Bottom -->
+                <div class="container text-center mt-4">
+                    <div class="copyright">
+                        © Copyright 2025 <strong><span>Mai Kisaan</span></strong>. All Rights Reserved
+                    </div>
+                    <div class="credits">
+                        Designed by <a href="https://www.maikisaan.com/">Mai Kisaan</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const menuButton = document.getElementById('menu-toggle');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            menuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+                mobileMenu.classList.toggle('flex');
+            });
+        });
+        document.addEventListener('DOMContentLoaded', function () {
+            AOS.init({
+                duration: 1000,
+                once: true
+            });
+
+            const menuButton = document.querySelector('nav button');
+            const menuItems = document.querySelector('nav div.hidden');
+
+            if (menuButton && menuItems) {
+                menuButton.addEventListener('click', () => {
+                    menuItems.classList.toggle('hidden');
+                    menuItems.classList.toggle('flex');
+                    menuItems.classList.toggle('flex-col');
+                    menuItems.classList.toggle('absolute');
+                    menuItems.classList.toggle('top-16');
+                    menuItems.classList.toggle('left-0');
+                    menuItems.classList.toggle('w-full');
+                    menuItems.classList.toggle('bg-black');
+                    menuItems.classList.toggle('p-4');
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

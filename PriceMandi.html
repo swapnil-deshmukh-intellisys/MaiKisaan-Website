@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Price Mandi Dashboard</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Open+Sans:wght@300;400;600&display=swap');
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #eef5ff;
+            overflow-x: hidden;
+        }
+
+        header {
+            background-color: #1e88e5;
+            color: #fff;
+            padding: 1rem;
+            text-align: center;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            animation: fadeInDown 1s ease;
+        }
+
+        .search-bar {
+            text-align: center;
+            margin: 1rem 0;
+            animation: fadeInUp 1s ease;
+        }
+
+        .search-bar input {
+            width: 60%;
+            padding: 0.5rem;
+            font-size: 1rem;
+            font-family: 'Roboto', sans-serif;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .search-bar input:focus {
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            outline: none;
+        }
+
+        .search-bar button {
+            padding: 0.6rem;
+            background-color: #ffcc00;
+            color: #1e88e5;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 500;
+            transition: transform 0.3s ease;
+        }
+
+        .search-bar button:hover {
+            transform: scale(1.1);
+        }
+
+        .dashboard {
+            max-width: 1200px;
+            margin: 1rem auto;
+            padding: 1rem;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1.5s ease;
+        }
+
+        .card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin: 1rem 0;
+            padding: 1rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        .trending-products,
+        .price-table {
+            margin-bottom: 2rem;
+        }
+
+        .trending-products h2,
+        .price-table h2 {
+            border-bottom: 2px solid #1e88e5;
+            padding-bottom: 0.5rem;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 700;
+            color: #333;
+            animation: fadeInLeft 1s ease;
+        }
+
+        .trending-products {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .product-card {
+            flex: 1;
+            padding: 1rem;
+            background-color: #f1f9ff;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            font-family: 'Roboto', sans-serif;
+            font-weight: 500;
+            transform: translateY(30px);
+            opacity: 0;
+            animation: slideUp 0.8s ease forwards;
+        }
+
+        .product-card:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .product-card:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        .product-card h3 {
+            margin: 0.5rem 0;
+            font-weight: 700;
+            color: #1e88e5;
+        }
+
+        .price-table table {
+            width: 100%;
+            border-collapse: collapse;
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        .price-table table,
+        .price-table th,
+        .price-table td {
+            border: 1px solid #ddd;
+        }
+
+        .price-table th,
+        .price-table td {
+            padding: 0.8rem;
+            text-align: center;
+            animation: fadeIn 1s ease;
+        }
+
+        .price-table th {
+            background-color: #1e88e5;
+            color: white;
+            font-weight: 600;
+        }
+
+        .price-table td {
+            color: #555;
+            font-weight: 400;
+        }
+
+        .chart-container {
+            text-align: center;
+            margin-top: 2rem;
+            font-family: 'Roboto', sans-serif;
+            animation: fadeInUp 1.5s ease;
+        }
+
+        .filters {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 500;
+            animation: fadeIn 1.5s ease;
+        }
+
+        .filters select,
+        .filters input {
+            padding: 0.5rem;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-family: 'Roboto', sans-serif;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .filters select:focus,
+        .filters input:focus {
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            outline: none;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+    <!-- Include Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <header>
+        <h1>Mai Kisaan - Price Mandi</h1>
+    </header>
+
+    <div class="search-bar">
+        <input type="text" placeholder="Search for a product (e.g., wheat, rice, maize)">
+        <button>Search</button>
+    </div>
+
+    <div class="dashboard">
+        <!-- Trending Products -->
+        <div class="card">
+            <div class="trending-products">
+                <h2>Trending Products</h2>
+                <div class="product-card">
+                    <h3>Wheat</h3>
+                    <p>₹2000</p>
+                    <p style="color: green;">+5%</p>
+                </div>
+                <div class="product-card">
+                    <h3>Sugarcane</h3>
+                    <p>₹1800</p>
+                    <p style="color: red;">-3%</p>
+                </div>
+                <div class="product-card">
+                    <h3>Maize</h3>
+                    <p>₹1000</p>
+                    <p style="color: green;">+1%</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Price Table -->
+        <div class="card">
+            <div class="price-table">
+                <h2>Live Price Table</h2>
+                <table>
+                    <tr>
+                        <th>Product</th>
+                        <th>Current Price</th>
+                        <th>Change</th>
+                        <th>Last Updated</th>
+                    </tr>
+                    <tr>
+                        <td>Wheat</td>
+                        <td>₹2000</td>
+                        <td style="color: green;">+5%</td>
+                        <td>10:30 AM</td>
+                    </tr>
+                    <tr>
+                        <td>Rice</td>
+                        <td>₹1500</td>
+                        <td style="color: red;">-2%</td>
+                        <td>10:20 AM</td>
+                    </tr>
+                    <tr>
+                        <td>Maize</td>
+                        <td>₹1000</td>
+                        <td style="color: green;">+1%</td>
+                        <td>10:15 AM</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- Comparative Graph -->
+        <div class="card">
+            <div class="chart-container">
+                <h2>Comparative Price Graph (Mai Kisaan vs Indian Market)</h2>
+                <canvas id="priceComparisonChart"></canvas>
+            </div>
+        </div>
+
+        <!-- Filters -->
+        <div class="card">
+            <div class="filters">
+                <select>
+                    <option>All Categories</option>
+                    <option>Cereals</option>
+                    <option>Pulses</option>
+                    <option>Vegetables</option>
+                    <option>Fruits</option>
+                </select>
+                <select>
+                    <option>All Regions</option>
+                    <option>North</option>
+                    <option>South</option>
+                    <option>East</option>
+                    <option>West</option>
+                </select>
+                <input type="text" placeholder="Price Range (e.g., 1000-2000)">
+            </div>
+        </div>
+    </div>
+
+    <!-- Script for Chart.js -->
+    <script>
+        var ctx = document.getElementById('priceComparisonChart').getContext('2d');
+        var priceComparisonChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['Wheat', 'Rice', 'Maize', 'Sugarcane'],
+                datasets: [{
+                    label: 'Mai Kisaan Market',
+                    data: [2000, 1500, 1000, 1800], // Prices in Mai Kisaan Market
+                    borderColor: 'rgba(33, 150, 243, 1)',
+                    backgroundColor: 'rgba(33, 150, 243, 0.2)',
+                    fill: false
+                },
+                {
+                    label: 'Indian Market',
+                    data: [1900, 1600, 950, 1700], // Prices in Indian Market
+                    borderColor: 'rgba(255, 193, 7, 1)',
+                    backgroundColor: 'rgba(255, 193, 7, 0.2)',
+                    fill: false
+                }
+                ]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+
+</body>
+
+</html>

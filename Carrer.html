@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Careers - Mai Kisaan</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Open+Sans:wght@300;400;600&display=swap');
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #e0f7fa 0%, #b3e5fc 100%);
+            color: #333;
+        }
+
+        header {
+            background-color: rgba(240, 248, 255, 0.9);
+            color: #2c3e50;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-bottom: 4px solid #4e9cc1;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin: 0;
+            color: #4e9cc1;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            margin-top: 0.5rem;
+            color: #7f8c8d;
+        }
+
+        .page-title {
+            text-align: center;
+            margin-top: 3rem;
+            font-size: 2rem;
+            font-weight: 600;
+        }
+
+        .job-listing {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 1rem;
+        }
+
+        .job-card {
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .job-card h3 {
+            font-size: 1.5rem;
+            color: #4e9cc1;
+            margin-bottom: 1rem;
+        }
+
+        .job-card p {
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            color: #555;
+        }
+
+        .job-card .apply-button {
+            padding: 0.8rem 1.5rem;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 1rem;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+        }
+
+        .job-card .apply-button:hover {
+            background-color: #388E3C;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 2rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        section {
+            margin-bottom: 2rem;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            animation: fadeInUp 1s ease-in-out;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Mai Kisaan - Careers</h1>
+        <p>Explore job opportunities at Mai Kisaan</p>
+    </header>
+
+    <div class="page-title">
+        <h2>Join Our Team</h2>
+        <p>Explore job opportunities at Mai Kisaan in various fields including Marketing, Development, and more.</p>
+    </div>
+
+    <div class="job-listing">
+        <!-- Marketing Jobs -->
+        <div class="job-card">
+            <h3>Marketing Manager</h3>
+            <p>We are looking for a dynamic Marketing Manager to lead campaigns, build brand awareness, and drive growth
+                in the market.</p>
+            <button class="apply-button">Apply Now</button>
+        </div>
+
+        <div class="job-card">
+            <h3>Digital Marketing Specialist</h3>
+            <p>Join our team to plan and execute digital marketing strategies to enhance our online presence and
+                engagement.</p>
+            <button class="apply-button">Apply Now</button>
+        </div>
+
+        <!-- Development Jobs -->
+        <div class="job-card">
+            <h3>Full Stack Developer</h3>
+            <p>We are seeking a Full Stack Developer with expertise in both front-end and back-end technologies to build
+                scalable applications.</p>
+            <button class="apply-button">Apply Now</button>
+        </div>
+
+        <div class="job-card">
+            <h3>Backend Developer</h3>
+            <p>Join us as a Backend Developer to work on server-side applications, databases, and APIs to support our
+                systems.</p>
+            <button class="apply-button">Apply Now</button>
+        </div>
+
+        <!-- Operations Jobs -->
+        <div class="job-card">
+            <h3>Operations Manager</h3>
+            <p>We are looking for an Operations Manager to oversee the day-to-day operations, logistics, and supply
+                chain management.</p>
+            <button class="apply-button">Apply Now</button>
+        </div>
+
+        <div class="job-card">
+            <h3>Logistics Coordinator</h3>
+            <p>As a Logistics Coordinator, you will be responsible for managing product shipments, deliveries, and
+                coordinating with vendors.</p>
+            <button class="apply-button">Apply Now</button>
+        </div>
+
+        <!-- Customer Support Jobs -->
+        <div class="job-card">
+            <h3>Customer Support Specialist</h3>
+            <p>We are seeking a Customer Support Specialist to handle customer inquiries, provide solutions, and ensure
+                satisfaction.</p>
+            <button class="apply-button">Apply Now</button>
+        </div>
+
+        <div class="job-card">
+            <h3>Customer Service Representative</h3>
+            <p>Join our customer service team to assist clients and resolve their concerns efficiently and
+                professionally.</p>
+            <button class="apply-button">Apply Now</button>
+        </div>
+
+        <!-- HR Jobs -->
+        <div class="job-card">
+            <h3>Human Resources Manager</h3>
+            <p>As an HR Manager, you will handle recruitment, employee relations, and ensure a positive work
+                environment.</p>
+            <button class="apply-button">Apply Now</button>
+        </div>
+
+        <div class="job-card">
+            <h3>Talent Acquisition Specialist</h3>
+            <p>We need a Talent Acquisition Specialist to attract top talent and ensure an efficient hiring process.</p>
+            <button class="apply-button">Apply Now</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Mai Kisaan. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>

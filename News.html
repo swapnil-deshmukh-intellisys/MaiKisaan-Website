@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mai Kisaan - Blog, Videos & News</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7f6;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            font-size: 2.5rem;
+            font-weight: bold;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .container {
+            width: 100%;
+            margin: 2rem auto;
+        }
+
+        .section {
+            margin-top: 2rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            animation: fadeInUp 1s ease-out;
+            letter-spacing: 1px;
+        }
+
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+            gap: 2rem;
+            justify-items: center;
+        }
+
+        .card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .card-image {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 1.5rem;
+        }
+
+        .card-content h3 {
+            font-size: 1.6rem;
+            color: #4CAF50;
+            margin-bottom: 1rem;
+            text-transform: capitalize;
+            transition: color 0.3s ease;
+        }
+
+        .card-content p {
+            font-size: 1rem;
+            color: #555;
+            margin-bottom: 1rem;
+            height: 100px;
+            overflow: hidden;
+        }
+
+        .card-content .read-more {
+            color: #2196F3;
+            font-weight: 600;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .card-content .read-more:hover {
+            color: #005bb5;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .video-embed {
+            width: 100%;
+            height: 220px;
+            border: none;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 1.8rem;
+            }
+            .card-container {
+                grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            }
+        }
+
+        @media (max-width: 480px) {
+            .section-title {
+                font-size: 1.5rem;
+            }
+            .card-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        Mai Kisaan - Blog, Videos & News
+    </header>
+
+    <div class="container">
+        <!-- Blog Section -->
+        <div class="section">
+            <div class="section-title">Latest Blogs</div>
+            <div class="card-container">
+                <!-- Blog Card 1 -->
+                <div class="card" onclick="window.location='blog1.html'">
+                    <img src="https://via.placeholder.com/600x400?text=Blog+Image" alt="Blog Image" class="card-image">
+                    <div class="card-content">
+                        <h3>5 Tips for Sustainable Farming</h3>
+                        <p>Learn how to improve your farming practices with these simple and effective sustainability tips. Reduce costs and increase yield...</p>
+                        <a href="blog1.html" class="read-more">Read More</a>
+                    </div>
+                </div>
+
+                <!-- Blog Card 2 -->
+                <div class="card" onclick="window.location='blog2.html'">
+                    <img src="https://via.placeholder.com/600x400?text=Blog+Image" alt="Blog Image" class="card-image">
+                    <div class="card-content">
+                        <h3>The Future of Organic Farming</h3>
+                        <p>The organic farming industry is growing rapidly. Discover the benefits, challenges, and opportunities for future farmers in this growing sector...</p>
+                        <a href="blog2.html" class="read-more">Read More</a>
+                    </div>
+                </div>
+
+                <!-- Blog Card 3 -->
+                <div class="card" onclick="window.location='blog3.html'">
+                    <img src="https://via.placeholder.com/600x400?text=Blog+Image" alt="Blog Image" class="card-image">
+                    <div class="card-content">
+                        <h3>How Technology is Revolutionizing Agriculture</h3>
+                        <p>Explore the various technological innovations that are helping farmers increase productivity, reduce costs, and optimize crop management...</p>
+                        <a href="blog3.html" class="read-more">Read More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Video Section -->
+        <div class="section">
+            <div class="section-title">Educational Videos</div>
+            <div class="card-container">
+                <!-- Video Card 1 -->
+                <div class="card" onclick="window.location='video1.html'">
+                    <iframe class="video-embed" src="https://www.youtube.com/embed/tgbNymZ7vqY" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <div class="card-content">
+                        <h3>Farming Tools You Need to Know</h3>
+                        <p>Watch this informative video to learn about the essential tools every farmer should have for efficient farming...</p>
+                        <a href="video1.html" class="read-more">Watch Now</a>
+                    </div>
+                </div>
+
+                <!-- Video Card 2 -->
+                <div class="card" onclick="window.location='video2.html'">
+                    <iframe class="video-embed" src="https://www.youtube.com/embed/tgbNymZ7vqY" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <div class="card-content">
+                        <h3>Advanced Irrigation Systems</h3>
+                        <p>This video explains the latest advances in irrigation systems that help farmers save water while increasing crop yield...</p>
+                        <a href="video2.html" class="read-more">Watch Now</a>
+                    </div>
+                </div>
+
+                <!-- Video Card 3 -->
+                <div class="card" onclick="window.location='video3.html'">
+                    <iframe class="video-embed" src="https://www.youtube.com/embed/tgbNymZ7vqY" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <div class="card-content">
+                        <h3>Precision Farming with Drones</h3>
+                        <p>See how drones are helping farmers monitor crops from above, providing valuable insights to improve efficiency and yield...</p>
+                        <a href="video3.html" class="read-more">Watch Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- News Section -->
+        <div class="section">
+            <div class="section-title">Latest News</div>
+            <div class="card-container">
+                <!-- News Card 1 -->
+                <div class="card" onclick="window.location='news1.html'">
+                    <img src="https://via.placeholder.com/600x400?text=News+Image" alt="News Image" class="card-image">
+                    <div class="card-content">
+                        <h3>Global Market Trends for Farm Products</h3>
+                        <p>Stay updated with the latest market trends that are impacting the global agriculture industry. From prices to global trade...</p>
+                        <a href="news1.html" class="read-more">Read More</a>
+                    </div>
+                </div>
+
+                <!-- News Card 2 -->
+                <div class="card" onclick="window.location='news2.html'">
+                    <img src="https://via.placeholder.com/600x400?text=News+Image" alt="News Image" class="card-image">
+                    <div class="card-content">
+                        <h3>Impact of Climate Change on Farming</h3>
+                        <p>Find out how climate change is affecting crop production globally and the steps farmers can take to adapt to these changes...</p>
+                        <a href="news2.html" class="read-more">Read More</a>
+                    </div>
+                </div>
+
+                <!-- News Card 3 -->
+                <div class="card" onclick="window.location='news3.html'">
+                    <img src="https://via.placeholder.com/600x400?text=News+Image" alt="News Image" class="card-image">
+                    <div class="card-content">
+                        <h3>Innovations in Sustainable Fertilizers</h3>
+                        <p>Learn about the latest sustainable fertilizer innovations that are helping farmers improve soil health while protecting the environment...</p>
+                        <a href="news3.html" class="read-more">Read More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+ 

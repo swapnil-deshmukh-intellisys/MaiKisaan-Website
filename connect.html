@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Updating Page</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+            overflow: hidden;
+        }
+
+        .updating-container {
+            text-align: center;
+        }
+
+        .loader {
+            border: 8px solid #f3f3f3;
+            border-top: 8px solid #4caf50;
+            border-radius: 50%;
+            width: 70px;
+            height: 70px;
+            animation: spin 1.5s linear infinite;
+            margin: 0 auto 20px auto;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .updating-title {
+            font-size: 2rem;
+            color: #4caf50;
+            margin-bottom: 10px;
+        }
+
+        .updating-text {
+            font-size: 1.2rem;
+            color: #757575;
+        }
+
+        .tips {
+            margin-top: 20px;
+            font-size: 1rem;
+            color: #555;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="updating-container">
+        <div class="loader"></div>
+        <h1 class="updating-title">Page Under Update</h1>
+        <p class="updating-text">We are currently making improvements. Please check back shortly!</p>
+        <p class="tips">Tip: Refresh the page or bookmark it for later access.</p>
+    </div>
+</body>
+
+</html>
